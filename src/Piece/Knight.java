@@ -24,160 +24,160 @@ public class Knight {
         if (Objects.equals(this.color, "white")) {
             //upper right
             if (row - 2 >= 0 && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row - 2][col + 1].getIcon()).equals("empty") && canMove(row, col, row - 2, col + 1)) {
+                if (isEmpty(board[row - 2][col + 1]) && canMove(row, col, row - 2, col + 1)) {
                     ans.add(board[row - 2][col + 1]);
                 }
-                if (getColor((ImageIcon) board[row - 2][col + 1].getIcon()).equals("black") && !getType((ImageIcon) board[row - 2][col + 1].getIcon()).equals("king") && canMove(row, col, row - 2, col + 1)) {
+                if (isEmpty(board[row - 2][col + 1]) && !getType((ImageIcon) board[row - 2][col + 1].getIcon()).equals("king") && canMove(row, col, row - 2, col + 1)) {
                     ans.add(board[row - 2][col + 1]);
                 }
             }
 
             //upper left
             if (row - 2 >= 0 && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 2][col - 1].getIcon()).equals("empty") && canMove(row, col, row - 2, col - 1)) {
+                if (isEmpty(board[row - 2][col - 1]) && canMove(row, col, row - 2, col - 1)) {
                     ans.add(board[row - 2][col - 1]);
                 }
-                if (getColor((ImageIcon) board[row - 2][col - 1].getIcon()).equals("black") && !getType((ImageIcon) board[row - 2][col - 1].getIcon()).equals("king") && canMove(row, col, row - 2, col - 1)) {
+                if (isBlack(board[row - 2][col - 1]) && !getType((ImageIcon) board[row - 2][col - 1].getIcon()).equals("king") && canMove(row, col, row - 2, col - 1)) {
                     ans.add(board[row - 2][col - 1]);
                 }
             }
 
             //lower right
             if (row + 2 < board.length && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 2][col + 1].getIcon()).equals("empty") && canMove(row, col, row + 2, col + 1)) {
+                if (isEmpty(board[row + 2][col + 1]) && canMove(row, col, row + 2, col + 1)) {
                     ans.add(board[row + 2][col + 1]);
                 }
-                if (getColor((ImageIcon) board[row + 2][col + 1].getIcon()).equals("black") && !getType((ImageIcon) board[row + 2][col + 1].getIcon()).equals("king") && canMove(row, col, row + 2, col + 1)) {
+                if (isBlack(board[row + 2][col + 1]) && !getType((ImageIcon) board[row + 2][col + 1].getIcon()).equals("king") && canMove(row, col, row + 2, col + 1)) {
                     ans.add(board[row + 2][col + 1]);
                 }
             }
 
             //lower left
             if (row + 2 < board.length && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row + 2][col - 1].getIcon()).equals("empty") && canMove(row, col, row + 2, col - 1)) {
+                if (isEmpty(board[row + 2][col - 1]) && canMove(row, col, row + 2, col - 1)) {
                     ans.add(board[row + 2][col - 1]);
                 }
-                if (getColor((ImageIcon) board[row + 2][col - 1].getIcon()).equals("black") && !getType((ImageIcon) board[row + 2][col - 1].getIcon()).equals("king") && canMove(row, col, row + 2, col - 1)) {
+                if (isBlack(board[row + 2][col - 1]) && !getType((ImageIcon) board[row + 2][col - 1].getIcon()).equals("king") && canMove(row, col, row + 2, col - 1)) {
                     ans.add(board[row + 2][col - 1]);
                 }
             }
 
             //left down
             if (row + 1 < board.length && col - 2 >= 0) {
-                if (getColor((ImageIcon) board[row + 1][col - 2].getIcon()).equals("empty") && canMove(row, col, row + 1, col - 2)) {
+                if (isEmpty(board[row + 1][col - 2]) && canMove(row, col, row + 1, col - 2)) {
                     ans.add(board[row + 1][col - 2]);
                 }
-                if (getColor((ImageIcon) board[row + 1][col - 2].getIcon()).equals("black") && !getType((ImageIcon) board[row + 1][col - 2].getIcon()).equals("king") && canMove(row, col, row + 1, col - 2)) {
+                if (isBlack(board[row + 1][col - 2]) && !getType((ImageIcon) board[row + 1][col - 2].getIcon()).equals("king") && canMove(row, col, row + 1, col - 2)) {
                     ans.add(board[row + 1][col - 2]);
                 }
             }
 
             //left up
             if (row - 1 >= 0 && col - 2 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col - 2].getIcon()).equals("empty") && canMove(row, col, row - 1, col - 2)) {
+                if (isEmpty(board[row - 1][col - 2]) && canMove(row, col, row - 1, col - 2)) {
                     ans.add(board[row - 1][col - 2]);
                 }
-                if (getColor((ImageIcon) board[row - 1][col - 2].getIcon()).equals("black") && !getType((ImageIcon) board[row - 1][col - 2].getIcon()).equals("king") && canMove(row, col, row - 1, col - 2)) {
+                if (isBlack(board[row - 1][col - 2]) && !getType((ImageIcon) board[row - 1][col - 2].getIcon()).equals("king") && canMove(row, col, row - 1, col - 2)) {
                     ans.add(board[row - 1][col - 2]);
                 }
             }
 
             //right down
             if (row + 1 < board.length && col + 2 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col + 2].getIcon()).equals("empty") && canMove(row, col, row + 1, col + 2)) {
+                if (isEmpty(board[row + 1][col + 2]) && canMove(row, col, row + 1, col + 2)) {
                     ans.add(board[row + 1][col + 2]);
                 }
-                if (getColor((ImageIcon) board[row + 1][col + 2].getIcon()).equals("black") && !getType((ImageIcon) board[row + 1][col + 2].getIcon()).equals("king") && canMove(row, col, row + 1, col + 2)) {
+                if (isBlack(board[row + 1][col + 2]) && !getType((ImageIcon) board[row + 1][col + 2].getIcon()).equals("king") && canMove(row, col, row + 1, col + 2)) {
                     ans.add(board[row + 1][col + 2]);
                 }
             }
 
             //right up
             if (row - 1 >= 0 && col + 2 < board.length) {
-                if (getColor((ImageIcon) board[row - 1][col + 2].getIcon()).equals("empty") && canMove(row, col, row - 1, col + 2)) {
+                if (isEmpty(board[row - 1][col + 2]) && canMove(row, col, row - 1, col + 2)) {
                     ans.add(board[row - 1][col + 2]);
                 }
-                if (getColor((ImageIcon) board[row - 1][col + 2].getIcon()).equals("black") && !getType((ImageIcon) board[row - 1][col + 2].getIcon()).equals("king") && canMove(row, col, row - 1, col + 2)) {
+                if (isBlack(board[row - 1][col + 2]) && !getType((ImageIcon) board[row - 1][col + 2].getIcon()).equals("king") && canMove(row, col, row - 1, col + 2)) {
                     ans.add(board[row - 1][col + 2]);
                 }
             }
         } else {
             //upper right
             if (row - 2 >= 0 && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row - 2][col + 1].getIcon()).equals("empty") && canMove(row, col, row - 2, col + 1)) {
+                if (isEmpty(board[row - 2][col + 1]) && canMove(row, col, row - 2, col + 1)) {
                     ans.add(board[row - 2][col + 1]);
                 }
-                if (getColor((ImageIcon) board[row - 2][col + 1].getIcon()).equals("white") && !getType((ImageIcon) board[row - 2][col + 1].getIcon()).equals("king") && canMove(row, col, row - 2, col + 1)) {
+                if (isWhite(board[row - 2][col + 1]) && !getType((ImageIcon) board[row - 2][col + 1].getIcon()).equals("king") && canMove(row, col, row - 2, col + 1)) {
                     ans.add(board[row - 2][col + 1]);
                 }
             }
 
             //upper left
             if (row - 2 >= 0 && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 2][col - 1].getIcon()).equals("empty") && canMove(row, col, row - 2, col - 1)) {
+                if (isEmpty(board[row - 2][col - 1]) && canMove(row, col, row - 2, col - 1)) {
                     ans.add(board[row - 2][col - 1]);
                 }
-                if (getColor((ImageIcon) board[row - 2][col - 1].getIcon()).equals("white") && !getType((ImageIcon) board[row - 2][col - 1].getIcon()).equals("king") && canMove(row, col, row - 2, col - 1)) {
+                if (isWhite(board[row - 2][col - 1]) && !getType((ImageIcon) board[row - 2][col - 1].getIcon()).equals("king") && canMove(row, col, row - 2, col - 1)) {
                     ans.add(board[row - 2][col - 1]);
                 }
             }
 
             //lower right
             if (row + 2 < board.length && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 2][col + 1].getIcon()).equals("empty") && canMove(row, col, row + 2, col + 1)) {
+                if (isEmpty(board[row + 2][col + 1]) && canMove(row, col, row + 2, col + 1)) {
                     ans.add(board[row + 2][col + 1]);
                 }
-                if (getColor((ImageIcon) board[row + 2][col + 1].getIcon()).equals("white") && !getType((ImageIcon) board[row + 2][col + 1].getIcon()).equals("king") && canMove(row, col, row + 2, col + 1)) {
+                if (isWhite(board[row + 2][col + 1]) && !getType((ImageIcon) board[row + 2][col + 1].getIcon()).equals("king") && canMove(row, col, row + 2, col + 1)) {
                     ans.add(board[row + 2][col + 1]);
                 }
             }
 
             //lower left
             if (row + 2 < board.length && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row + 2][col - 1].getIcon()).equals("empty") && canMove(row, col, row + 2, col - 1)) {
+                if (isEmpty(board[row + 2][col - 1]) && canMove(row, col, row + 2, col - 1)) {
                     ans.add(board[row + 2][col - 1]);
                 }
-                if (getColor((ImageIcon) board[row + 2][col - 1].getIcon()).equals("white") && !getType((ImageIcon) board[row + 2][col - 1].getIcon()).equals("king") && canMove(row, col, row + 2, col - 1)) {
+                if (isWhite(board[row + 2][col - 1]) && !getType((ImageIcon) board[row + 2][col - 1].getIcon()).equals("king") && canMove(row, col, row + 2, col - 1)) {
                     ans.add(board[row + 2][col - 1]);
                 }
             }
 
             //left down
             if (row + 1 < board.length && col - 2 >= 0) {
-                if (getColor((ImageIcon) board[row + 1][col - 2].getIcon()).equals("empty") && canMove(row, col, row + 1, col - 2)) {
+                if (isEmpty(board[row + 1][col - 2]) && canMove(row, col, row + 1, col - 2)) {
                     ans.add(board[row + 1][col - 2]);
                 }
-                if (getColor((ImageIcon) board[row + 1][col - 2].getIcon()).equals("white") && !getType((ImageIcon) board[row + 1][col - 2].getIcon()).equals("king") && canMove(row, col, row + 1, col - 2)) {
+                if (isWhite(board[row + 1][col - 2]) && !getType((ImageIcon) board[row + 1][col - 2].getIcon()).equals("king") && canMove(row, col, row + 1, col - 2)) {
                     ans.add(board[row + 1][col - 2]);
                 }
             }
 
             //left up
             if (row - 1 >= 0 && col - 2 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col - 2].getIcon()).equals("empty") && canMove(row, col, row - 1, col - 2)) {
+                if (isEmpty(board[row - 1][col - 2]) && canMove(row, col, row - 1, col - 2)) {
                     ans.add(board[row - 1][col - 2]);
                 }
-                if (getColor((ImageIcon) board[row - 1][col - 2].getIcon()).equals("white") && !getType((ImageIcon) board[row - 1][col - 2].getIcon()).equals("king") && canMove(row, col, row - 1, col - 2)) {
+                if (isWhite(board[row - 1][col - 2]) && !getType((ImageIcon) board[row - 1][col - 2].getIcon()).equals("king") && canMove(row, col, row - 1, col - 2)) {
                     ans.add(board[row - 1][col - 2]);
                 }
             }
 
             //right down
             if (row + 1 < board.length && col + 2 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col + 2].getIcon()).equals("empty") && canMove(row, col, row + 1, col + 2)) {
+                if (isEmpty(board[row + 1][col + 2]) && canMove(row, col, row + 1, col + 2)) {
                     ans.add(board[row + 1][col + 2]);
                 }
-                if (getColor((ImageIcon) board[row + 1][col + 2].getIcon()).equals("white") && !getType((ImageIcon) board[row + 1][col + 2].getIcon()).equals("king") && canMove(row, col, row + 1, col + 2)) {
+                if (isWhite(board[row + 1][col + 2]) && !getType((ImageIcon) board[row + 1][col + 2].getIcon()).equals("king") && canMove(row, col, row + 1, col + 2)) {
                     ans.add(board[row + 1][col + 2]);
                 }
             }
 
             //right up
             if (row - 1 >= 0 && col + 2 < board.length) {
-                if (getColor((ImageIcon) board[row - 1][col + 2].getIcon()).equals("empty") && canMove(row, col, row - 1, col + 2)) {
+                if (isEmpty(board[row - 1][col + 2]) && canMove(row, col, row - 1, col + 2)) {
                     ans.add(board[row - 1][col + 2]);
                 }
-                if (getColor((ImageIcon) board[row - 1][col + 2].getIcon()).equals("white") && !getType((ImageIcon) board[row - 1][col + 2].getIcon()).equals("king") && canMove(row, col, row - 1, col + 2)) {
+                if (isWhite(board[row - 1][col + 2]) && !getType((ImageIcon) board[row - 1][col + 2].getIcon()).equals("king") && canMove(row, col, row - 1, col + 2)) {
                     ans.add(board[row - 1][col + 2]);
                 }
             }
@@ -199,11 +199,11 @@ public class Knight {
         if (Objects.equals(this.color, "white")) {
             //upper right
             if (row - 2 >= 0 && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row - 2][col + 1].getIcon()).equals("empty") && canMove(row, col, row - 2, col + 1)) {
+                if (isEmpty(board[row - 2][col + 1]) && canMove(row, col, row - 2, col + 1)) {
                     board[row - 2][col + 1].setBackground(blueHighlight);
                     board[row - 2][col + 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
-                if (getColor((ImageIcon) board[row - 2][col + 1].getIcon()).equals("black") && !getType((ImageIcon) board[row - 2][col + 1].getIcon()).equals("king") && canMove(row, col, row - 2, col + 1)) {
+                if (isBlack(board[row - 2][col + 1]) && !getType((ImageIcon) board[row - 2][col + 1].getIcon()).equals("king") && canMove(row, col, row - 2, col + 1)) {
                     board[row - 2][col + 1].setBackground(redHighlight);
                     board[row - 2][col + 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -211,11 +211,11 @@ public class Knight {
 
             //upper left
             if (row - 2 >= 0 && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 2][col - 1].getIcon()).equals("empty") && canMove(row, col, row - 2, col - 1)) {
+                if (isEmpty(board[row - 2][col - 1]) && canMove(row, col, row - 2, col - 1)) {
                     board[row - 2][col - 1].setBackground(blueHighlight);
                     board[row - 2][col - 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
-                if (getColor((ImageIcon) board[row - 2][col - 1].getIcon()).equals("black") && !getType((ImageIcon) board[row - 2][col - 1].getIcon()).equals("king") && canMove(row, col, row - 2, col - 1)) {
+                if (isBlack(board[row - 2][col - 1]) && !getType((ImageIcon) board[row - 2][col - 1].getIcon()).equals("king") && canMove(row, col, row - 2, col - 1)) {
                     board[row - 2][col - 1].setBackground(redHighlight);
                     board[row - 2][col - 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -223,11 +223,11 @@ public class Knight {
 
             //lower right
             if (row + 2 < board.length && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 2][col + 1].getIcon()).equals("empty") && canMove(row, col, row + 2, col + 1)) {
+                if (isEmpty(board[row + 2][col + 1]) && canMove(row, col, row + 2, col + 1)) {
                     board[row + 2][col + 1].setBackground(blueHighlight);
                     board[row + 2][col + 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
-                if (getColor((ImageIcon) board[row + 2][col + 1].getIcon()).equals("black") && !getType((ImageIcon) board[row + 2][col + 1].getIcon()).equals("king") && canMove(row, col, row + 2, col + 1)) {
+                if (isBlack(board[row + 2][col + 1]) && !getType((ImageIcon) board[row + 2][col + 1].getIcon()).equals("king") && canMove(row, col, row + 2, col + 1)) {
                     board[row + 2][col + 1].setBackground(redHighlight);
                     board[row + 2][col + 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -235,11 +235,11 @@ public class Knight {
 
             //lower left
             if (row + 2 < board.length && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row + 2][col - 1].getIcon()).equals("empty") && canMove(row, col, row + 2, col - 1)) {
+                if (isEmpty(board[row + 2][col - 1]) && canMove(row, col, row + 2, col - 1)) {
                     board[row + 2][col - 1].setBackground(blueHighlight);
                     board[row + 2][col - 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
-                if (getColor((ImageIcon) board[row + 2][col - 1].getIcon()).equals("black") && !getType((ImageIcon) board[row + 2][col - 1].getIcon()).equals("king") && canMove(row, col, row + 2, col - 1)) {
+                if (isBlack(board[row + 2][col - 1]) && !getType((ImageIcon) board[row + 2][col - 1].getIcon()).equals("king") && canMove(row, col, row + 2, col - 1)) {
                     board[row + 2][col - 1].setBackground(redHighlight);
                     board[row + 2][col - 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -247,11 +247,11 @@ public class Knight {
 
             //left down
             if (row + 1 < board.length && col - 2 >= 0) {
-                if (getColor((ImageIcon) board[row + 1][col - 2].getIcon()).equals("empty") && canMove(row, col, row + 1, col - 2)) {
+                if (isEmpty(board[row + 1][col - 2]) && canMove(row, col, row + 1, col - 2)) {
                     board[row + 1][col - 2].setBackground(blueHighlight);
                     board[row + 1][col - 2].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
-                if (getColor((ImageIcon) board[row + 1][col - 2].getIcon()).equals("black") && !getType((ImageIcon) board[row + 1][col - 2].getIcon()).equals("king") && canMove(row, col, row + 1, col - 2)) {
+                if (isBlack(board[row + 1][col - 2]) && !getType((ImageIcon) board[row + 1][col - 2].getIcon()).equals("king") && canMove(row, col, row + 1, col - 2)) {
                     board[row + 1][col - 2].setBackground(redHighlight);
                     board[row + 1][col - 2].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -259,11 +259,11 @@ public class Knight {
 
             //left up
             if (row - 1 >= 0 && col - 2 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col - 2].getIcon()).equals("empty") && canMove(row, col, row - 1, col - 2)) {
+                if (isEmpty(board[row - 1][col - 2]) && canMove(row, col, row - 1, col - 2)) {
                     board[row - 1][col - 2].setBackground(blueHighlight);
                     board[row - 1][col - 2].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
-                if (getColor((ImageIcon) board[row - 1][col - 2].getIcon()).equals("black") && !getType((ImageIcon) board[row - 1][col - 2].getIcon()).equals("king") && canMove(row, col, row - 1, col - 2)) {
+                if (isBlack(board[row - 1][col - 2]) && !getType((ImageIcon) board[row - 1][col - 2].getIcon()).equals("king") && canMove(row, col, row - 1, col - 2)) {
                     board[row - 1][col - 2].setBackground(redHighlight);
                     board[row - 1][col - 2].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -271,11 +271,11 @@ public class Knight {
 
             //right down
             if (row + 1 < board.length && col + 2 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col + 2].getIcon()).equals("empty") && canMove(row, col, row + 1, col + 2)) {
+                if (isEmpty(board[row + 1][col + 2]) && canMove(row, col, row + 1, col + 2)) {
                     board[row + 1][col + 2].setBackground(blueHighlight);
                     board[row + 1][col + 2].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
-                if (getColor((ImageIcon) board[row + 1][col + 2].getIcon()).equals("black") && !getType((ImageIcon) board[row + 1][col + 2].getIcon()).equals("king") && canMove(row, col, row + 1, col + 2)) {
+                if (isBlack(board[row + 1][col + 2]) && !getType((ImageIcon) board[row + 1][col + 2].getIcon()).equals("king") && canMove(row, col, row + 1, col + 2)) {
                     board[row + 1][col + 2].setBackground(redHighlight);
                     board[row + 1][col + 2].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -283,11 +283,11 @@ public class Knight {
 
             //right up
             if (row - 1 >= 0 && col + 2 < board.length) {
-                if (getColor((ImageIcon) board[row - 1][col + 2].getIcon()).equals("empty") && canMove(row, col, row - 1, col + 2)) {
+                if (isEmpty(board[row - 1][col + 2]) && canMove(row, col, row - 1, col + 2)) {
                     board[row - 1][col + 2].setBackground(blueHighlight);
                     board[row - 1][col + 2].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
-                if (getColor((ImageIcon) board[row - 1][col + 2].getIcon()).equals("black") && !getType((ImageIcon) board[row - 1][col + 2].getIcon()).equals("king") && canMove(row, col, row - 1, col + 2)) {
+                if (isBlack(board[row - 1][col + 2]) && !getType((ImageIcon) board[row - 1][col + 2].getIcon()).equals("king") && canMove(row, col, row - 1, col + 2)) {
                     board[row - 1][col + 2].setBackground(redHighlight);
                     board[row - 1][col + 2].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -295,11 +295,11 @@ public class Knight {
         } else {
             //upper right
             if (row - 2 >= 0 && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row - 2][col + 1].getIcon()).equals("empty") && canMove(row, col, row - 2, col + 1)) {
+                if (isEmpty(board[row - 2][col + 1]) && canMove(row, col, row - 2, col + 1)) {
                     board[row - 2][col + 1].setBackground(blueHighlight);
                     board[row - 2][col + 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
-                if (getColor((ImageIcon) board[row - 2][col + 1].getIcon()).equals("white") && !getType((ImageIcon) board[row - 2][col + 1].getIcon()).equals("king") && canMove(row, col, row - 2, col + 1)) {
+                if (isWhite(board[row - 2][col + 1]) && !getType((ImageIcon) board[row - 2][col + 1].getIcon()).equals("king") && canMove(row, col, row - 2, col + 1)) {
                     board[row - 2][col + 1].setBackground(redHighlight);
                     board[row - 2][col + 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -307,11 +307,11 @@ public class Knight {
 
             //upper left
             if (row - 2 >= 0 && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 2][col - 1].getIcon()).equals("empty") && canMove(row, col, row - 2, col - 1)) {
+                if (isEmpty(board[row - 2][col - 1]) && canMove(row, col, row - 2, col - 1)) {
                     board[row - 2][col - 1].setBackground(blueHighlight);
                     board[row - 2][col - 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
-                if (getColor((ImageIcon) board[row - 2][col - 1].getIcon()).equals("white") && !getType((ImageIcon) board[row - 2][col - 1].getIcon()).equals("king")) {
+                if (isWhite(board[row - 2][col - 1]) && !getType((ImageIcon) board[row - 2][col - 1].getIcon()).equals("king")) {
                     board[row - 2][col - 1].setBackground(redHighlight);
                     board[row - 2][col - 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -319,11 +319,11 @@ public class Knight {
 
             //lower right
             if (row + 2 < board.length && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 2][col + 1].getIcon()).equals("empty") && canMove(row, col, row + 2, col + 1)) {
+                if (isEmpty(board[row + 2][col + 1]) && canMove(row, col, row + 2, col + 1)) {
                     board[row + 2][col + 1].setBackground(blueHighlight);
                     board[row + 2][col + 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
-                if (getColor((ImageIcon) board[row + 2][col + 1].getIcon()).equals("white") && !getType((ImageIcon) board[row + 2][col + 1].getIcon()).equals("king") && canMove(row, col, row + 2, col + 1)) {
+                if (isWhite(board[row + 2][col + 1]) && !getType((ImageIcon) board[row + 2][col + 1].getIcon()).equals("king") && canMove(row, col, row + 2, col + 1)) {
                     board[row + 2][col + 1].setBackground(redHighlight);
                     board[row + 2][col + 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -331,11 +331,11 @@ public class Knight {
 
             //lower left
             if (row + 2 < board.length && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row + 2][col - 1].getIcon()).equals("empty") && canMove(row, col, row + 2, col - 1)) {
+                if (isEmpty(board[row + 2][col - 1]) && canMove(row, col, row + 2, col - 1)) {
                     board[row + 2][col - 1].setBackground(blueHighlight);
                     board[row + 2][col - 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
-                if (getColor((ImageIcon) board[row + 2][col - 1].getIcon()).equals("white") && !getType((ImageIcon) board[row + 2][col - 1].getIcon()).equals("king") && canMove(row, col, row + 2, col - 1)) {
+                if (isWhite(board[row + 2][col - 1]) && !getType((ImageIcon) board[row + 2][col - 1].getIcon()).equals("king") && canMove(row, col, row + 2, col - 1)) {
                     board[row + 2][col - 1].setBackground(redHighlight);
                     board[row + 2][col - 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -343,11 +343,11 @@ public class Knight {
 
             //left down
             if (row + 1 < board.length && col - 2 >= 0) {
-                if (getColor((ImageIcon) board[row + 1][col - 2].getIcon()).equals("empty") && canMove(row, col, row + 1, col - 2)) {
+                if (isEmpty(board[row + 1][col - 2]) && canMove(row, col, row + 1, col - 2)) {
                     board[row + 1][col - 2].setBackground(blueHighlight);
                     board[row + 1][col - 2].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
-                if (getColor((ImageIcon) board[row + 1][col - 2].getIcon()).equals("white") && !getType((ImageIcon) board[row + 1][col - 2].getIcon()).equals("king")) {
+                if (isWhite(board[row + 1][col - 2]) && !getType((ImageIcon) board[row + 1][col - 2].getIcon()).equals("king")) {
                     board[row + 1][col - 2].setBackground(redHighlight);
                     board[row + 1][col - 2].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -355,11 +355,11 @@ public class Knight {
 
             //left up
             if (row - 1 >= 0 && col - 2 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col - 2].getIcon()).equals("empty") && canMove(row, col, row - 1, col - 2)) {
+                if (isEmpty(board[row - 1][col - 2]) && canMove(row, col, row - 1, col - 2)) {
                     board[row - 1][col - 2].setBackground(blueHighlight);
                     board[row - 1][col - 2].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
-                if (getColor((ImageIcon) board[row - 1][col - 2].getIcon()).equals("white") && !getType((ImageIcon) board[row - 1][col - 2].getIcon()).equals("king") && canMove(row, col, row - 1, col - 2)) {
+                if (isWhite(board[row - 1][col - 2]) && !getType((ImageIcon) board[row - 1][col - 2].getIcon()).equals("king") && canMove(row, col, row - 1, col - 2)) {
                     board[row - 1][col - 2].setBackground(redHighlight);
                     board[row - 1][col - 2].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -367,11 +367,11 @@ public class Knight {
 
             //right down
             if (row + 1 < board.length && col + 2 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col + 2].getIcon()).equals("empty") && canMove(row, col, row + 1, col + 2)) {
+                if (isEmpty(board[row + 1][col + 2]) && canMove(row, col, row + 1, col + 2)) {
                     board[row + 1][col + 2].setBackground(blueHighlight);
                     board[row + 1][col + 2].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
-                if (getColor((ImageIcon) board[row + 1][col + 2].getIcon()).equals("white") && !getType((ImageIcon) board[row + 1][col + 2].getIcon()).equals("king") && canMove(row, col, row + 1, col + 2)) {
+                if (isWhite(board[row + 1][col + 2]) && !getType((ImageIcon) board[row + 1][col + 2].getIcon()).equals("king") && canMove(row, col, row + 1, col + 2)) {
                     board[row + 1][col + 2].setBackground(redHighlight);
                     board[row + 1][col + 2].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -379,11 +379,11 @@ public class Knight {
 
             //right up
             if (row - 1 >= 0 && col + 2 < board.length) {
-                if (getColor((ImageIcon) board[row - 1][col + 2].getIcon()).equals("empty") && canMove(row, col, row - 1, col + 2)) {
+                if (isEmpty(board[row - 1][col + 2]) && canMove(row, col, row - 1, col + 2)) {
                     board[row - 1][col + 2].setBackground(blueHighlight);
                     board[row - 1][col + 2].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
-                if (getColor((ImageIcon) board[row - 1][col + 2].getIcon()).equals("white") && !getType((ImageIcon) board[row - 1][col + 2].getIcon()).equals("king") && canMove(row, col, row - 1, col + 2)) {
+                if (isWhite(board[row - 1][col + 2]) && !getType((ImageIcon) board[row - 1][col + 2].getIcon()).equals("king") && canMove(row, col, row - 1, col + 2)) {
                     board[row - 1][col + 2].setBackground(redHighlight);
                     board[row - 1][col + 2].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }

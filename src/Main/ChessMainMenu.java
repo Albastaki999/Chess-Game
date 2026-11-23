@@ -31,7 +31,7 @@ public class ChessMainMenu extends JFrame {
 
         // Create and resize the 8x8 game button
         JButton button8x8 = new JButton();
-        button8x8.setIcon(resizeIcon(play8Icon, 100, 50)); // Set the desired size here
+        button8x8.setIcon(resizeIcon(play8Icon)); // Set the desired size here
         button8x8.setPreferredSize(new Dimension(100, 50));
         button8x8.addActionListener(e -> {
             new Main();
@@ -41,7 +41,7 @@ public class ChessMainMenu extends JFrame {
 
         // Create and resize the 16x16 game button
         JButton button16x16 = new JButton();
-        button16x16.setIcon(resizeIcon(play16Icon, 100, 50)); // Set the desired size here
+        button16x16.setIcon(resizeIcon(play16Icon)); // Set the desired size here
         button16x16.setPreferredSize(new Dimension(100, 50));
         button16x16.addActionListener(e -> {
             new Main2();
@@ -57,11 +57,11 @@ public class ChessMainMenu extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    private ImageIcon resizeIcon(ImageIcon icon, int width, int height) {
+    private ImageIcon resizeIcon(ImageIcon icon) {
         Image img = icon.getImage();
-        BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage bi = new BufferedImage(100, 50, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = bi.createGraphics();
-        g2d.drawImage(img, 0, 0, width, height, null);
+        g2d.drawImage(img, 0, 0, 100, 50, null);
         g2d.dispose();
         return new ImageIcon(bi);
     }

@@ -35,7 +35,7 @@ public class King {
 
             //check if forward cell is empty and ensure we are 1 square away from opposite king
             if (row - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col].getIcon()).equals("empty")
+                if (isEmpty(board[row - 1][col])
                         && isSafe(row - 1, col)
                 ) {
                     ans.add(board[row - 1][col]);
@@ -43,7 +43,7 @@ public class King {
 
 
                 //check if forward cell has a opposite piece and ensure we are 1 square away from opposite king
-                if (getColor((ImageIcon) board[row - 1][col].getIcon()).equals("black") && isSafe(row - 1, col)) {
+                if (isBlack(board[row - 1][col]) && isSafe(row - 1, col)) {
                     ans.add(board[row - 1][col]);
                 }
             }
@@ -51,7 +51,7 @@ public class King {
 
             //check if backward cell is empty and ensure we are 1 square away from opposite king
             if (row + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col].getIcon()).equals("empty")
+                if (isEmpty(board[row + 1][col])
                         && isSafe(row + 1, col)
                 ) {
                     ans.add(board[row + 1][col]);
@@ -59,14 +59,14 @@ public class King {
 
 
                 //check if backward cell has an opposite piece and ensure we are 1 square away from opposite king
-                if (getColor((ImageIcon) board[row + 1][col].getIcon()).equals("black") && isSafe(row + 1, col)) {
+                if (isBlack(board[row + 1][col]) && isSafe(row + 1, col)) {
                     ans.add(board[row + 1][col]);
                 }
             }
 
             //check if left cell is empty and ensure we are 1 square away from opposite king
             if (col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row][col - 1].getIcon()).equals("empty")
+                if (isEmpty(board[row][col - 1])
                         && isSafe(row, col - 1)
                 ) {
                     ans.add(board[row][col - 1]);
@@ -74,14 +74,14 @@ public class King {
 
 
                 //check if left cell has an opposite piece and ensure we are 1 square away from opposite king
-                if (getColor((ImageIcon) board[row][col - 1].getIcon()).equals("black") && isSafe(row, col - 1)) {
+                if (isBlack(board[row][col - 1]) && isSafe(row, col - 1)) {
                     ans.add(board[row][col - 1]);
                 }
             }
 
             //check if right cell is empty and ensure we are 1 square away from opposite king
             if (col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row][col + 1].getIcon()).equals("empty")
+                if (isEmpty(board[row][col + 1])
                         && isSafe(row, col + 1)
                 ) {
                     ans.add(board[row][col + 1]);
@@ -89,14 +89,14 @@ public class King {
 
 
                 //check if right cell has an opposite piece and ensure we are 1 square away from opposite king
-                if (getColor((ImageIcon) board[row][col + 1].getIcon()).equals("black") && isSafe(row, col + 1)) {
+                if (isBlack(board[row][col + 1]) && isSafe(row, col + 1)) {
                     ans.add(board[row][col + 1]);
                 }
             }
 
             //check if upper left diagonal is empty and ensure it is 1 square away from opposite king
             if (row - 1 >= 0 && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col - 1].getIcon()).equals("empty")
+                if (isEmpty(board[row - 1][col - 1])
                         && isSafe(row - 1, col - 1)
                 ) {
                     ans.add(board[row - 1][col - 1]);
@@ -105,7 +105,7 @@ public class King {
 
             //check if upper left diagonal has an opposite piece and ensure it is 1 square away from opposite king
             if (row - 1 >= 0 && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col - 1].getIcon()).equals("black")
+                if (isBlack(board[row - 1][col - 1])
                         && isSafe(row - 1, col - 1)
                 ) {
                     ans.add(board[row - 1][col - 1]);
@@ -114,7 +114,7 @@ public class King {
 
             //check if upper right diagonal is empty and ensure it is 1 square away from opposite king
             if (row - 1 >= 0 && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row - 1][col + 1].getIcon()).equals("empty")
+                if (isEmpty(board[row - 1][col + 1])
                         && isSafe(row - 1, col + 1)
                 ) {
                     ans.add(board[row - 1][col + 1]);
@@ -123,7 +123,7 @@ public class King {
 
             //check if upper right diagonal has an opposite piece and ensure it is 1 square away from opposite king
             if (row - 1 >= 0 && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row - 1][col + 1].getIcon()).equals("black")
+                if (isBlack(board[row - 1][col + 1])
                         && isSafe(row - 1, col + 1)
                 ) {
                     ans.add(board[row - 1][col + 1]);
@@ -132,7 +132,7 @@ public class King {
 
             //check if lower right diagonal is empty and ensure it is 1 square away from opposite king
             if (row + 1 < board.length && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col + 1].getIcon()).equals("empty")
+                if (isEmpty(board[row + 1][col + 1])
                         && isSafe(row + 1, col + 1)
                 ) {
                     ans.add(board[row + 1][col + 1]);
@@ -142,7 +142,7 @@ public class King {
 
             //check if lower right diagonal has an opposite piece and ensure it is 1 square away from opposite king
             if (row + 1 < board.length && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col + 1].getIcon()).equals("black")
+                if (isBlack(board[row + 1][col + 1])
                         && isSafe(row + 1, col + 1)
                 ) {
                     ans.add(board[row + 1][col + 1]);
@@ -151,7 +151,7 @@ public class King {
 
             //check if lower left diagonal is empty and ensure it is 1 square away from opposite king
             if (row + 1 < board.length && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row + 1][col - 1].getIcon()).equals("empty")
+                if (isEmpty(board[row + 1][col - 1])
                         && isSafe(row + 1, col - 1)
                 ) {
                     ans.add(board[row + 1][col - 1]);
@@ -161,7 +161,7 @@ public class King {
 
             //check if lower left diagonal has an opposite piece and ensure it is 1 square away from opposite king
             if (row + 1 < board.length && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row + 1][col - 1].getIcon()).equals("black")
+                if (isBlack(board[row + 1][col - 1])
                         && isSafe(row + 1, col - 1)
                 ) {
                     ans.add(board[row + 1][col - 1]);
@@ -179,7 +179,7 @@ public class King {
 
             //check if forward cell is empty and ensure we are 1 square away from opposite king
             if (row - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col].getIcon()).equals("empty")
+                if (isEmpty(board[row - 1][col])
                         && isSafe(row - 1, col)
                 ) {
                     ans.add(board[row - 1][col]);
@@ -187,7 +187,7 @@ public class King {
 
 
                 //check if forward cell has a opposite piece and ensure we are 1 square away from opposite king
-                if (getColor((ImageIcon) board[row - 1][col].getIcon()).equals("white") && isSafe(row - 1, col)) {
+                if (isWhite(board[row - 1][col]) && isSafe(row - 1, col)) {
                     ans.add(board[row - 1][col]);
                 }
             }
@@ -195,7 +195,7 @@ public class King {
 
             //check if backward cell is empty and ensure we are 1 square away from opposite king
             if (row + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col].getIcon()).equals("empty")
+                if (isEmpty(board[row + 1][col])
                         && isSafe(row + 1, col)
                 ) {
                     ans.add(board[row + 1][col]);
@@ -203,14 +203,14 @@ public class King {
 
 
                 //check if backward cell has an opposite piece and ensure we are 1 square away from opposite king
-                if (getColor((ImageIcon) board[row + 1][col].getIcon()).equals("white") && isSafe(row + 1, col)) {
+                if (isWhite(board[row + 1][col]) && isSafe(row + 1, col)) {
                     ans.add(board[row + 1][col]);
                 }
             }
 
             //check if left cell is empty and ensure we are 1 square away from opposite king
             if (col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row][col - 1].getIcon()).equals("empty")
+                if (isEmpty(board[row][col - 1])
                         && isSafe(row, col - 1)
                 ) {
                     ans.add(board[row][col - 1]);
@@ -218,14 +218,14 @@ public class King {
 
 
                 //check if left cell has an opposite piece and ensure we are 1 square away from opposite king
-                if (getColor((ImageIcon) board[row][col - 1].getIcon()).equals("white") && isSafe(row, col - 1)) {
+                if (isWhite(board[row][col - 1]) && isSafe(row, col - 1)) {
                     ans.add(board[row][col - 1]);
                 }
             }
 
             //check if right cell is empty and ensure we are 1 square away from opposite king
             if (col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row][col + 1].getIcon()).equals("empty")
+                if (isEmpty(board[row][col + 1])
                         && isSafe(row, col + 1)
                 ) {
                     ans.add(board[row][col + 1]);
@@ -233,7 +233,7 @@ public class King {
 
 
                 //check if right cell has an opposite piece and ensure we are 1 square away from opposite king
-                if (getColor((ImageIcon) board[row][col + 1].getIcon()).equals("white") && isSafe(row, col + 1)) {
+                if (isWhite(board[row][col + 1]) && isSafe(row, col + 1)) {
                     ans.add(board[row][col + 1]);
                 }
             }
@@ -241,7 +241,7 @@ public class King {
 
             //check if upper left diagonal is empty and ensure it is 1 square away from opposite king
             if (row - 1 >= 0 && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col - 1].getIcon()).equals("empty")
+                if (isEmpty(board[row - 1][col - 1])
                         && isSafe(row - 1, col - 1)
                 ) {
                     ans.add(board[row - 1][col - 1]);
@@ -251,7 +251,7 @@ public class King {
 
             //check if upper left diagonal has an opposite piece and ensure it is 1 square away from opposite king
             if (row - 1 >= 0 && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col - 1].getIcon()).equals("white")
+                if (isWhite(board[row - 1][col - 1])
                         && isSafe(row - 1, col - 1)
                 ) {
                     ans.add(board[row - 1][col - 1]);
@@ -260,7 +260,7 @@ public class King {
 
             //check if upper right diagonal is empty and ensure it is 1 square away from opposite king
             if (row - 1 >= 0 && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row - 1][col + 1].getIcon()).equals("empty")
+                if (isEmpty(board[row - 1][col + 1])
                         && isSafe(row - 1, col + 1)
                 ) {
                     ans.add(board[row - 1][col + 1]);
@@ -270,7 +270,7 @@ public class King {
 
             //check if upper right diagonal has an opposite piece and ensure it is 1 square away from opposite king
             if (row - 1 >= 0 && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row - 1][col + 1].getIcon()).equals("white")
+                if (isWhite(board[row - 1][col + 1])
                         && isSafe(row - 1, col + 1)
                 ) {
                     ans.add(board[row - 1][col + 1]);
@@ -279,7 +279,7 @@ public class King {
 
             //check if lower right diagonal is empty and ensure it is 1 square away from opposite king
             if (row + 1 < board.length && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col + 1].getIcon()).equals("empty")
+                if (isEmpty(board[row + 1][col + 1])
                         && isSafe(row + 1, col + 1)
                 ) {
                     ans.add(board[row + 1][col + 1]);
@@ -289,7 +289,7 @@ public class King {
 
             //check if lower right diagonal has an opposite piece and ensure it is 1 square away from opposite king
             if (row + 1 < board.length && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col + 1].getIcon()).equals("white")
+                if (isWhite(board[row + 1][col + 1])
                         && isSafe(row + 1, col + 1)
                 ) {
                     ans.add(board[row + 1][col + 1]);
@@ -298,7 +298,7 @@ public class King {
 
             //check if lower left diagonal is empty and ensure it is 1 square away from opposite king
             if (row + 1 < board.length && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row + 1][col - 1].getIcon()).equals("empty")
+                if (isEmpty(board[row + 1][col - 1])
                         && isSafe(row + 1, col - 1)
                 ) {
                     ans.add(board[row + 1][col - 1]);
@@ -308,7 +308,7 @@ public class King {
 
             //check if lower left diagonal has an opposite piece and ensure it is 1 square away from opposite king
             if (row + 1 < board.length && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row + 1][col - 1].getIcon()).equals("white")
+                if (isWhite(board[row + 1][col - 1])
                         && isSafe(row + 1, col - 1)
                 ) {
                     ans.add(board[row + 1][col - 1]);
@@ -343,7 +343,7 @@ public class King {
 
             //check if forward cell is empty and ensure we are 1 square away from opposite king
             if (row - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col].getIcon()).equals("empty")
+                if (isEmpty(board[row - 1][col])
                         && isSafe(row - 1, col)
                 ) {
                     board[row - 1][col].setBackground(blueHighlight);
@@ -352,7 +352,7 @@ public class King {
 
 
                 //check if forward cell has a opposite piece and ensure we are 1 square away from opposite king
-                if (getColor((ImageIcon) board[row - 1][col].getIcon()).equals("black") && isSafe(row - 1, col)) {
+                if (isBlack(board[row - 1][col]) && isSafe(row - 1, col)) {
                     board[row - 1][col].setBackground(redHighlight);
                     board[row - 1][col].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -361,7 +361,7 @@ public class King {
 
             //check if backward cell is empty and ensure we are 1 square away from opposite king
             if (row + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col].getIcon()).equals("empty")
+                if (isEmpty(board[row + 1][col])
                         && isSafe(row + 1, col)
                 ) {
                     board[row + 1][col].setBackground(blueHighlight);
@@ -370,7 +370,7 @@ public class King {
 
 
                 //check if backward cell has an opposite piece and ensure we are 1 square away from opposite king
-                if (getColor((ImageIcon) board[row + 1][col].getIcon()).equals("black") && isSafe(row + 1, col)) {
+                if (isBlack(board[row + 1][col]) && isSafe(row + 1, col)) {
                     board[row + 1][col].setBackground(redHighlight);
                     board[row + 1][col].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -378,7 +378,7 @@ public class King {
 
             //check if left cell is empty and ensure we are 1 square away from opposite king
             if (col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row][col - 1].getIcon()).equals("empty")
+                if (isEmpty(board[row][col - 1])
                         && isSafe(row, col - 1)
                 ) {
                     board[row][col - 1].setBackground(blueHighlight);
@@ -387,7 +387,7 @@ public class King {
 
 
                 //check if left cell has an opposite piece and ensure we are 1 square away from opposite king
-                if (getColor((ImageIcon) board[row][col - 1].getIcon()).equals("black") && isSafe(row, col - 1)) {
+                if (isBlack(board[row][col - 1]) && isSafe(row, col - 1)) {
                     board[row][col - 1].setBackground(redHighlight);
                     board[row][col - 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -395,7 +395,7 @@ public class King {
 
             //check if right cell is empty and ensure we are 1 square away from opposite king
             if (col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row][col + 1].getIcon()).equals("empty")
+                if (isEmpty(board[row][col + 1])
                         && isSafe(row, col + 1)
                 ) {
                     board[row][col + 1].setBackground(blueHighlight);
@@ -404,7 +404,7 @@ public class King {
 
 
                 //check if right cell has an opposite piece and ensure we are 1 square away from opposite king
-                if (getColor((ImageIcon) board[row][col + 1].getIcon()).equals("black") && isSafe(row, col + 1)) {
+                if (isBlack(board[row][col + 1]) && isSafe(row, col + 1)) {
                     board[row][col + 1].setBackground(redHighlight);
                     board[row][col + 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -413,7 +413,7 @@ public class King {
 
             //check if upper left diagonal is empty and ensure it is 1 square away from opposite king
             if (row - 1 >= 0 && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col - 1].getIcon()).equals("empty")
+                if (isEmpty(board[row - 1][col - 1])
                         && isSafe(row - 1, col - 1)
                 ) {
                     board[row - 1][col - 1].setBackground(blueHighlight);
@@ -424,7 +424,7 @@ public class King {
 
             //check if upper left diagonal has an opposite piece and ensure it is 1 square away from opposite king
             if (row - 1 >= 0 && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col - 1].getIcon()).equals("black")
+                if (isBlack(board[row - 1][col - 1])
                         && isSafe(row - 1, col - 1)
                 ) {
                     board[row - 1][col - 1].setBackground(redHighlight);
@@ -434,7 +434,7 @@ public class King {
 
             //check if upper right diagonal is empty and ensure it is 1 square away from opposite king
             if (row - 1 >= 0 && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row - 1][col + 1].getIcon()).equals("empty")
+                if (isEmpty(board[row - 1][col + 1])
                         && isSafe(row - 1, col + 1)
                 ) {
                     board[row - 1][col + 1].setBackground(blueHighlight);
@@ -445,7 +445,7 @@ public class King {
 
             //check if upper right diagonal has an opposite piece and ensure it is 1 square away from opposite king
             if (row - 1 >= 0 && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row - 1][col + 1].getIcon()).equals("black")
+                if (isBlack(board[row - 1][col + 1])
                         && isSafe(row - 1, col + 1)
                 ) {
                     board[row - 1][col + 1].setBackground(redHighlight);
@@ -455,7 +455,7 @@ public class King {
 
             //check if lower right diagonal is empty and ensure it is 1 square away from opposite king
             if (row + 1 < board.length && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col + 1].getIcon()).equals("empty")
+                if (isEmpty(board[row + 1][col + 1])
                         && isSafe(row + 1, col + 1)
                 ) {
                     board[row + 1][col + 1].setBackground(blueHighlight);
@@ -466,7 +466,7 @@ public class King {
 
             //check if lower right diagonal has an opposite piece and ensure it is 1 square away from opposite king
             if (row + 1 < board.length && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col + 1].getIcon()).equals("black")
+                if (isBlack(board[row + 1][col + 1])
                         && isSafe(row + 1, col + 1)
                 ) {
                     board[row + 1][col + 1].setBackground(redHighlight);
@@ -476,7 +476,7 @@ public class King {
 
             //check if lower left diagonal is empty and ensure it is 1 square away from opposite king
             if (row + 1 < board.length && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row + 1][col - 1].getIcon()).equals("empty")
+                if (isEmpty(board[row + 1][col - 1])
                         && isSafe(row + 1, col - 1)
                 ) {
                     board[row + 1][col - 1].setBackground(blueHighlight);
@@ -487,7 +487,7 @@ public class King {
 
             //check if lower left diagonal has an opposite piece and ensure it is 1 square away from opposite king
             if (row + 1 < board.length && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row + 1][col - 1].getIcon()).equals("black")
+                if (isBlack(board[row + 1][col - 1])
                         && isSafe(row + 1, col - 1)
                 ) {
                     board[row + 1][col - 1].setBackground(redHighlight);
@@ -508,7 +508,7 @@ public class King {
 
             //check if forward cell is empty and ensure we are 1 square away from opposite king
             if (row - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col].getIcon()).equals("empty")
+                if (isEmpty(board[row - 1][col])
                         && isSafe(row - 1, col)
                 ) {
                     board[row - 1][col].setBackground(blueHighlight);
@@ -517,7 +517,7 @@ public class King {
 
 
                 //check if forward cell has a opposite piece and ensure we are 1 square away from opposite king
-                if (getColor((ImageIcon) board[row - 1][col].getIcon()).equals("white") && isSafe(row - 1, col)) {
+                if (isWhite(board[row - 1][col]) && isSafe(row - 1, col)) {
                     board[row - 1][col].setBackground(redHighlight);
                     board[row - 1][col].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -526,7 +526,7 @@ public class King {
 
             //check if backward cell is empty and ensure we are 1 square away from opposite king
             if (row + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col].getIcon()).equals("empty")
+                if (isEmpty(board[row + 1][col])
                         && isSafe(row + 1, col)
                 ) {
                     board[row + 1][col].setBackground(blueHighlight);
@@ -535,7 +535,7 @@ public class King {
 
 
                 //check if backward cell has an opposite piece and ensure we are 1 square away from opposite king
-                if (getColor((ImageIcon) board[row + 1][col].getIcon()).equals("white") && isSafe(row + 1, col)) {
+                if (isWhite(board[row + 1][col]) && isSafe(row + 1, col)) {
                     board[row + 1][col].setBackground(redHighlight);
                     board[row + 1][col].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -543,7 +543,7 @@ public class King {
 
             //check if left cell is empty and ensure we are 1 square away from opposite king
             if (col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row][col - 1].getIcon()).equals("empty")
+                if (isEmpty(board[row][col - 1])
                         && isSafe(row, col - 1)
                 ) {
                     board[row][col - 1].setBackground(blueHighlight);
@@ -552,7 +552,7 @@ public class King {
 
 
                 //check if left cell has an opposite piece and ensure we are 1 square away from opposite king
-                if (getColor((ImageIcon) board[row][col - 1].getIcon()).equals("white") && isSafe(row, col - 1)) {
+                if (isWhite(board[row][col - 1]) && isSafe(row, col - 1)) {
                     board[row][col - 1].setBackground(redHighlight);
                     board[row][col - 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -560,7 +560,7 @@ public class King {
 
             //check if right cell is empty and ensure we are 1 square away from opposite king
             if (col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row][col + 1].getIcon()).equals("empty")
+                if (isEmpty(board[row][col + 1])
                         && isSafe(row, col + 1)
                 ) {
                     board[row][col + 1].setBackground(blueHighlight);
@@ -569,7 +569,7 @@ public class King {
 
 
                 //check if right cell has an opposite piece and ensure we are 1 square away from opposite king
-                if (getColor((ImageIcon) board[row][col + 1].getIcon()).equals("white") && isSafe(row, col + 1)) {
+                if (isWhite(board[row][col + 1]) && isSafe(row, col + 1)) {
                     board[row][col + 1].setBackground(redHighlight);
                     board[row][col + 1].setBorder(BorderFactory.createLineBorder(Color.black, 1));
                 }
@@ -578,7 +578,7 @@ public class King {
 
             //check if upper left diagonal is empty and ensure it is 1 square away from opposite king
             if (row - 1 >= 0 && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col - 1].getIcon()).equals("empty")
+                if (isEmpty(board[row - 1][col - 1])
                         && isSafe(row - 1, col - 1)
                 ) {
                     board[row - 1][col - 1].setBackground(blueHighlight);
@@ -589,7 +589,7 @@ public class King {
 
             //check if upper left diagonal has an opposite piece and ensure it is 1 square away from opposite king
             if (row - 1 >= 0 && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col - 1].getIcon()).equals("white")
+                if (isWhite(board[row - 1][col - 1])
                         && isSafe(row - 1, col - 1)
                 ) {
                     board[row - 1][col - 1].setBackground(redHighlight);
@@ -599,7 +599,7 @@ public class King {
 
             //check if upper right diagonal is empty and ensure it is 1 square away from opposite king
             if (row - 1 >= 0 && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row - 1][col + 1].getIcon()).equals("empty")
+                if (isEmpty(board[row - 1][col + 1])
                         && isSafe(row - 1, col + 1)
                 ) {
                     board[row - 1][col + 1].setBackground(blueHighlight);
@@ -610,7 +610,7 @@ public class King {
 
             //check if upper right diagonal has an opposite piece and ensure it is 1 square away from opposite king
             if (row - 1 >= 0 && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row - 1][col + 1].getIcon()).equals("white")
+                if (isWhite(board[row - 1][col + 1])
                         && isSafe(row - 1, col + 1)
                 ) {
                     board[row - 1][col + 1].setBackground(redHighlight);
@@ -620,7 +620,7 @@ public class King {
 
             //check if lower right diagonal is empty and ensure it is 1 square away from opposite king
             if (row + 1 < board.length && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col + 1].getIcon()).equals("empty")
+                if (isEmpty(board[row + 1][col + 1])
                         && isSafe(row + 1, col + 1)
                 ) {
                     board[row + 1][col + 1].setBackground(blueHighlight);
@@ -631,7 +631,7 @@ public class King {
 
             //check if lower right diagonal has an opposite piece and ensure it is 1 square away from opposite king
             if (row + 1 < board.length && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col + 1].getIcon()).equals("white")
+                if (isWhite(board[row + 1][col + 1])
                         && isSafe(row + 1, col + 1)
                 ) {
                     board[row + 1][col + 1].setBackground(redHighlight);
@@ -641,7 +641,7 @@ public class King {
 
             //check if lower left diagonal is empty and ensure it is 1 square away from opposite king
             if (row + 1 < board.length && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row + 1][col - 1].getIcon()).equals("empty")
+                if (isEmpty(board[row + 1][col - 1])
                         && isSafe(row + 1, col - 1)
                 ) {
                     board[row + 1][col - 1].setBackground(blueHighlight);
@@ -652,7 +652,7 @@ public class King {
 
             //check if lower left diagonal has an opposite piece and ensure it is 1 square away from opposite king
             if (row + 1 < board.length && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row + 1][col - 1].getIcon()).equals("white")
+                if (isWhite(board[row + 1][col - 1])
                         && isSafe(row + 1, col - 1)
                 ) {
                     board[row + 1][col - 1].setBackground(redHighlight);
@@ -665,62 +665,62 @@ public class King {
     public boolean isSafe(int row, int col) {
         if (Objects.equals(this.color, "white")) {
             if (row - 1 >= 0 && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col - 1].getIcon()).equals("black") && getType((ImageIcon) board[row - 1][col - 1].getIcon()).equals("pawn")) {
+                if (isBlack(board[row - 1][col - 1]) && getType((ImageIcon) board[row - 1][col - 1].getIcon()).equals("pawn")) {
                     return false;
                 }
             }
             if (row - 1 >= 0 && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row - 1][col + 1].getIcon()).equals("black") && getType((ImageIcon) board[row - 1][col + 1].getIcon()).equals("pawn")) {
+                if (isBlack(board[row - 1][col + 1]) && getType((ImageIcon) board[row - 1][col + 1].getIcon()).equals("pawn")) {
                     return false;
                 }
             }
             if (row - 1 >= 0 && col - 1 >= 0) {
-                if(getColor((ImageIcon) board[row - 1][col - 1].getIcon()).equals("black") && getType((ImageIcon) board[row - 1][col - 1].getIcon()).equals("king")){
+                if(isBlack(board[row - 1][col - 1]) && getType((ImageIcon) board[row - 1][col - 1].getIcon()).equals("king")){
                     return false;
                 }
             }
             if (row - 1 >= 0) {
-                if(getColor((ImageIcon) board[row - 1][col].getIcon()).equals("black") && getType((ImageIcon) board[row - 1][col].getIcon()).equals("king")){
+                if(isBlack(board[row - 1][col]) && getType((ImageIcon) board[row - 1][col].getIcon()).equals("king")){
                     return false;
                 }
             }
             if (row - 1 >= 0 && col + 1 < board.length) {
-                if(getColor((ImageIcon) board[row - 1][col + 1].getIcon()).equals("black") && getType((ImageIcon) board[row - 1][col + 1].getIcon()).equals("king")){
+                if(isBlack(board[row - 1][col + 1]) && getType((ImageIcon) board[row - 1][col + 1].getIcon()).equals("king")){
                     return false;
                 }
             }
             if (col - 1 >= 0) {
-                if(getColor((ImageIcon) board[row][col - 1].getIcon()).equals("black") && getType((ImageIcon) board[row][col - 1].getIcon()).equals("king")){
+                if(isBlack(board[row][col - 1]) && getType((ImageIcon) board[row][col - 1].getIcon()).equals("king")){
                     return false;
                 }
             }
 
             if (col + 1 < board.length) {
-                if(getColor((ImageIcon) board[row][col + 1].getIcon()).equals("black") && getType((ImageIcon) board[row][col + 1].getIcon()).equals("king")){
+                if(isBlack(board[row][col + 1]) && getType((ImageIcon) board[row][col + 1].getIcon()).equals("king")){
                     return false;
                 }
             }
             if (row + 1 < board.length && col - 1 >= 0) {
-                if(getColor((ImageIcon) board[row + 1][col - 1].getIcon()).equals("black") && getType((ImageIcon) board[row + 1][col - 1].getIcon()).equals("king")){
+                if(isBlack(board[row + 1][col - 1]) && getType((ImageIcon) board[row + 1][col - 1].getIcon()).equals("king")){
                     return false;
                 }
             }
             if (row + 1 < board.length) {
-                if(getColor((ImageIcon) board[row + 1][col].getIcon()).equals("black") && getType((ImageIcon) board[row + 1][col].getIcon()).equals("king")){
+                if(isBlack(board[row + 1][col]) && getType((ImageIcon) board[row + 1][col].getIcon()).equals("king")){
                     return false;
                 }
             }
             if (row + 1 < board.length && col + 1 < board.length) {
-                if(getColor((ImageIcon) board[row + 1][col + 1].getIcon()).equals("black") && getType((ImageIcon) board[row + 1][col + 1].getIcon()).equals("king")){
+                if(isBlack(board[row + 1][col + 1]) && getType((ImageIcon) board[row + 1][col + 1].getIcon()).equals("king")){
                     return false;
                 }
             }
             //check diagonals
             //left upper diagonal
             for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
-                if (getColor((ImageIcon) board[i][j].getIcon()).equals("black") && (getType((ImageIcon) board[i][j].getIcon()).equals("bishop") || getType((ImageIcon) board[i][j].getIcon()).equals("queen"))) {
+                if (isBlack(board[i][j]) && (getType((ImageIcon) board[i][j].getIcon()).equals("bishop") || getType((ImageIcon) board[i][j].getIcon()).equals("queen"))) {
                     return false;
-                } else if (!getColor((ImageIcon) board[i][j].getIcon()).equals("empty")) {
+                } else if (!isEmpty(board[i][j])) {
                     break;
                 }
             }
@@ -730,9 +730,9 @@ public class King {
                 if(getType((ImageIcon) board[i][j].getIcon()).equals("king")){
                     continue;
                 }
-                if (getColor((ImageIcon) board[i][j].getIcon()).equals("black") && (getType((ImageIcon) board[i][j].getIcon()).equals("bishop") || getType((ImageIcon) board[i][j].getIcon()).equals("queen"))) {
+                if (isBlack(board[i][j]) && (getType((ImageIcon) board[i][j].getIcon()).equals("bishop") || getType((ImageIcon) board[i][j].getIcon()).equals("queen"))) {
                     return false;
-                } else if (!getColor((ImageIcon) board[i][j].getIcon()).equals("empty")) {
+                } else if (!isEmpty(board[i][j])) {
                     break;
                 }
             }
@@ -742,9 +742,9 @@ public class King {
                 if(getType((ImageIcon) board[i][j].getIcon()).equals("king")){
                     continue;
                 }
-                if (getColor((ImageIcon) board[i][j].getIcon()).equals("black") && (getType((ImageIcon) board[i][j].getIcon()).equals("bishop") || getType((ImageIcon) board[i][j].getIcon()).equals("queen"))) {
+                if (isBlack(board[i][j]) && (getType((ImageIcon) board[i][j].getIcon()).equals("bishop") || getType((ImageIcon) board[i][j].getIcon()).equals("queen"))) {
                     return false;
-                } else if (!getColor((ImageIcon) board[i][j].getIcon()).equals("empty")) {
+                } else if (!isEmpty(board[i][j])) {
                     break;
                 }
             }
@@ -754,9 +754,9 @@ public class King {
                 if(getType((ImageIcon) board[i][j].getIcon()).equals("king")){
                     continue;
                 }
-                if (getColor((ImageIcon) board[i][j].getIcon()).equals("black") && (getType((ImageIcon) board[i][j].getIcon()).equals("bishop") || getType((ImageIcon) board[i][j].getIcon()).equals("queen"))) {
+                if (isBlack(board[i][j]) && (getType((ImageIcon) board[i][j].getIcon()).equals("bishop") || getType((ImageIcon) board[i][j].getIcon()).equals("queen"))) {
                     return false;
-                } else if (!getColor((ImageIcon) board[i][j].getIcon()).equals("empty")) {
+                } else if (!isEmpty(board[i][j])) {
                     break;
                 }
             }
@@ -767,9 +767,9 @@ public class King {
                 if(getType((ImageIcon) board[i][col].getIcon()).equals("king")){
                     continue;
                 }
-                if (getColor((ImageIcon) board[i][col].getIcon()).equals("black") && (getType((ImageIcon) board[i][col].getIcon()).equals("rook") || getType((ImageIcon) board[i][col].getIcon()).equals("queen"))) {
+                if (isBlack(board[i][col]) && (getType((ImageIcon) board[i][col].getIcon()).equals("rook") || getType((ImageIcon) board[i][col].getIcon()).equals("queen"))) {
                     return false;
-                } else if (!getColor((ImageIcon) board[i][col].getIcon()).equals("empty")) {
+                } else if (!isEmpty(board[i][col])) {
                     break;
                 }
             }
@@ -779,9 +779,9 @@ public class King {
                 if(getType((ImageIcon) board[i][col].getIcon()).equals("king")){
                     continue;
                 }
-                if (getColor((ImageIcon) board[i][col].getIcon()).equals("black") && (getType((ImageIcon) board[i][col].getIcon()).equals("rook") || getType((ImageIcon) board[i][col].getIcon()).equals("queen"))) {
+                if (isBlack(board[i][col]) && (getType((ImageIcon) board[i][col].getIcon()).equals("rook") || getType((ImageIcon) board[i][col].getIcon()).equals("queen"))) {
                     return false;
-                } else if (!getColor((ImageIcon) board[i][col].getIcon()).equals("empty")) {
+                } else if (!isEmpty(board[i][col])) {
                     break;
                 }
             }
@@ -791,9 +791,9 @@ public class King {
                 if(getType((ImageIcon) board[row][j].getIcon()).equals("king")){
                     continue;
                 }
-                if (getColor((ImageIcon) board[row][j].getIcon()).equals("black") && (getType((ImageIcon) board[row][j].getIcon()).equals("rook") || getType((ImageIcon) board[row][j].getIcon()).equals("queen"))) {
+                if (isBlack(board[row][j]) && (getType((ImageIcon) board[row][j].getIcon()).equals("rook") || getType((ImageIcon) board[row][j].getIcon()).equals("queen"))) {
                     return false;
-                } else if (!getColor((ImageIcon) board[row][j].getIcon()).equals("empty")) {
+                } else if (!isEmpty(board[row][j])) {
                     break;
                 }
             }
@@ -803,9 +803,9 @@ public class King {
                 if(getType((ImageIcon) board[row][j].getIcon()).equals("king")){
                     continue;
                 }
-                if (getColor((ImageIcon) board[row][j].getIcon()).equals("black") && (getType((ImageIcon) board[row][j].getIcon()).equals("rook") || getType((ImageIcon) board[row][j].getIcon()).equals("queen"))) {
+                if (isBlack(board[row][j]) && (getType((ImageIcon) board[row][j].getIcon()).equals("rook") || getType((ImageIcon) board[row][j].getIcon()).equals("queen"))) {
                     return false;
-                } else if (!getColor((ImageIcon) board[row][j].getIcon()).equals("empty")) {
+                } else if (!isEmpty(board[row][j])) {
                     break;
                 }
             }
@@ -813,108 +813,106 @@ public class King {
             //detect Knights
             //upper right
             if (row - 2 >= 0 && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row - 2][col + 1].getIcon()).equals("black") && getType((ImageIcon) board[row - 2][col + 1].getIcon()).equals("knight")) {
+                if (isBlack(board[row - 2][col + 1]) && getType((ImageIcon) board[row - 2][col + 1].getIcon()).equals("knight")) {
                     return false;
                 }
             }
 
             //upper left
             if (row - 2 >= 0 && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 2][col - 1].getIcon()).equals("black") && getType((ImageIcon) board[row - 2][col - 1].getIcon()).equals("knight")) {
+                if (isBlack(board[row - 2][col - 1]) && getType((ImageIcon) board[row - 2][col - 1].getIcon()).equals("knight")) {
                     return false;
                 }
             }
 
             //lower right
             if (row + 2 < board.length && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 2][col + 1].getIcon()).equals("black") && getType((ImageIcon) board[row + 2][col + 1].getIcon()).equals("knight")) {
+                if (isBlack(board[row + 2][col + 1]) && getType((ImageIcon) board[row + 2][col + 1].getIcon()).equals("knight")) {
                     return false;
                 }
             }
 
             //lower left
             if (row + 2 < board.length && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row + 2][col - 1].getIcon()).equals("black") && getType((ImageIcon) board[row + 2][col - 1].getIcon()).equals("knight")) {
+                if (isBlack(board[row + 2][col - 1]) && getType((ImageIcon) board[row + 2][col - 1].getIcon()).equals("knight")) {
                     return false;
                 }
             }
 
             //left down
             if (row + 1 < board.length && col - 2 >= 0) {
-                if (getColor((ImageIcon) board[row + 1][col - 2].getIcon()).equals("black") && getType((ImageIcon) board[row + 1][col - 2].getIcon()).equals("knight")) {
+                if (isBlack(board[row + 1][col - 2]) && getType((ImageIcon) board[row + 1][col - 2].getIcon()).equals("knight")) {
                     return false;
                 }
             }
 
             //left up
             if (row - 1 >= 0 && col - 2 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col - 2].getIcon()).equals("black") && getType((ImageIcon) board[row - 1][col - 2].getIcon()).equals("knight")) {
+                if (isBlack(board[row - 1][col - 2]) && getType((ImageIcon) board[row - 1][col - 2].getIcon()).equals("knight")) {
                     return false;
                 }
             }
 
             //right down
             if (row + 1 < board.length && col + 2 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col + 2].getIcon()).equals("black") && getType((ImageIcon) board[row + 1][col + 2].getIcon()).equals("knight")) {
+                if (isBlack(board[row + 1][col + 2]) && getType((ImageIcon) board[row + 1][col + 2].getIcon()).equals("knight")) {
                     return false;
                 }
             }
 
             //right up
             if (row - 1 >= 0 && col + 2 < board.length) {
-                if (getColor((ImageIcon) board[row - 1][col + 2].getIcon()).equals("black") && getType((ImageIcon) board[row - 1][col + 2].getIcon()).equals("knight")) {
-                    return false;
-                }
+                return !isBlack(board[row - 1][col + 2]) || !getType((ImageIcon) board[row - 1][col + 2].getIcon()).equals("knight");
             }
         } else {
             if (row + 1 < board.length && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row + 1][col - 1].getIcon()).equals("white") && getType((ImageIcon) board[row + 1][col - 1].getIcon()).equals("pawn")) {
+                if (isWhite(board[row + 1][col - 1]) && getType((ImageIcon) board[row + 1][col - 1].getIcon()).equals("pawn")) {
                     return false;
                 }
             }
             if (row + 1 < board.length && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col + 1].getIcon()).equals("white") && getType((ImageIcon) board[row + 1][col + 1].getIcon()).equals("pawn")) {
+                if (isWhite(board[row + 1][col + 1]) && getType((ImageIcon) board[row + 1][col + 1].getIcon()).equals("pawn")) {
                     return false;
                 }
             }
             if (row - 1 >= 0 && col - 1 >= 0) {
-                if(getColor((ImageIcon) board[row - 1][col - 1].getIcon()).equals("white") && getType((ImageIcon) board[row - 1][col - 1].getIcon()).equals("king")){
+                if(isWhite(board[row - 1][col - 1]) && getType((ImageIcon) board[row - 1][col - 1].getIcon()).equals("king")){
                     return false;
                 }
             }
             if (row - 1 >= 0) {
-                if(getColor((ImageIcon) board[row - 1][col].getIcon()).equals("white") && getType((ImageIcon) board[row - 1][col].getIcon()).equals("king")){
+                if(isWhite(board[row - 1][col]) && getType((ImageIcon) board[row - 1][col].getIcon()).equals("king")){
                     return false;
                 }
             }
             if (row - 1 >= 0 && col + 1 < board.length) {
-                if(getColor((ImageIcon) board[row - 1][col + 1].getIcon()).equals("white") && getType((ImageIcon) board[row - 1][col + 1].getIcon()).equals("king")){
+                if(isWhite(board[row - 1][col + 1]) && getType((ImageIcon) board[row - 1][col + 1].getIcon()).equals("king")){
                     return false;
                 }
             }
             if (col - 1 >= 0) {
-                if(getColor((ImageIcon) board[row][col - 1].getIcon()).equals("white") && getType((ImageIcon) board[row][col - 1].getIcon()).equals("king")){
+                if(isWhite(board[row][col - 1]) && getType((ImageIcon) board[row][col - 1].getIcon()).equals("king")){
                     return false;
                 }
             }
 
             if (col + 1 < board.length) {
-                if(getColor((ImageIcon) board[row][col + 1].getIcon()).equals("white") && getType((ImageIcon) board[row][col + 1].getIcon()).equals("king")){
+                if(isWhite(board[row][col + 1]) && getType((ImageIcon) board[row][col + 1].getIcon()).equals("king")){
                     return false;
                 }
             }
             if (row + 1 < board.length && col - 1 >= 0) {
-                if(getColor((ImageIcon) board[row + 1][col - 1].getIcon()).equals("white") && getType((ImageIcon) board[row + 1][col - 1].getIcon()).equals("king")){
+                if(isWhite(board[row + 1][col - 1]) && getType((ImageIcon) board[row + 1][col - 1].getIcon()).equals("king")){
                     return false;
                 }
             }
             if (row + 1 < board.length) {
-                if(getColor((ImageIcon) board[row + 1][col].getIcon()).equals("white") && getType((ImageIcon) board[row + 1][col].getIcon()).equals("king")){
+                if(isWhite(board[row + 1][col]) && getType((ImageIcon) board[row + 1][col].getIcon()).equals("king")){
                     return false;
                 }
             }
             if (row + 1 < board.length && col + 1 < board.length) {
-                if(getColor((ImageIcon) board[row + 1][col + 1].getIcon()).equals("white") && getType((ImageIcon) board[row + 1][col + 1].getIcon()).equals("king")){
+                if(isWhite(board[row + 1][col + 1]) && getType((ImageIcon) board[row + 1][col + 1].getIcon()).equals("king")){
                     return false;
                 }
             }
@@ -924,9 +922,9 @@ public class King {
                 if(getType((ImageIcon) board[i][j].getIcon()).equals("king")){
                     continue;
                 }
-                if (getColor((ImageIcon) board[i][j].getIcon()).equals("white") && (getType((ImageIcon) board[i][j].getIcon()).equals("bishop") || getType((ImageIcon) board[i][j].getIcon()).equals("queen"))) {
+                if (isWhite(board[i][j]) && (getType((ImageIcon) board[i][j].getIcon()).equals("bishop") || getType((ImageIcon) board[i][j].getIcon()).equals("queen"))) {
                     return false;
-                } else if (!getColor((ImageIcon) board[i][j].getIcon()).equals("empty")) {
+                } else if (!isEmpty(board[i][j])) {
                     break;
                 }
             }
@@ -936,9 +934,9 @@ public class King {
                 if(getType((ImageIcon) board[i][j].getIcon()).equals("king")){
                     continue;
                 }
-                if (getColor((ImageIcon) board[i][j].getIcon()).equals("white") && (getType((ImageIcon) board[i][j].getIcon()).equals("bishop") || getType((ImageIcon) board[i][j].getIcon()).equals("queen"))) {
+                if (isWhite(board[i][j]) && (getType((ImageIcon) board[i][j].getIcon()).equals("bishop") || getType((ImageIcon) board[i][j].getIcon()).equals("queen"))) {
                     return false;
-                } else if (!getColor((ImageIcon) board[i][j].getIcon()).equals("empty")) {
+                } else if (!isEmpty(board[i][j])) {
                     break;
                 }
             }
@@ -948,9 +946,9 @@ public class King {
                 if(getType((ImageIcon) board[i][j].getIcon()).equals("king")){
                     continue;
                 }
-                if (getColor((ImageIcon) board[i][j].getIcon()).equals("white") && (getType((ImageIcon) board[i][j].getIcon()).equals("bishop") || getType((ImageIcon) board[i][j].getIcon()).equals("queen"))) {
+                if (isWhite(board[i][j]) && (getType((ImageIcon) board[i][j].getIcon()).equals("bishop") || getType((ImageIcon) board[i][j].getIcon()).equals("queen"))) {
                     return false;
-                } else if (!getColor((ImageIcon) board[i][j].getIcon()).equals("empty")) {
+                } else if (!isEmpty(board[i][j])) {
                     break;
                 }
             }
@@ -960,9 +958,9 @@ public class King {
                 if(getType((ImageIcon) board[i][j].getIcon()).equals("king")){
                     continue;
                 }
-                if (getColor((ImageIcon) board[i][j].getIcon()).equals("white") && (getType((ImageIcon) board[i][j].getIcon()).equals("bishop") || getType((ImageIcon) board[i][j].getIcon()).equals("queen"))) {
+                if (isWhite(board[i][j]) && (getType((ImageIcon) board[i][j].getIcon()).equals("bishop") || getType((ImageIcon) board[i][j].getIcon()).equals("queen"))) {
                     return false;
-                } else if (!getColor((ImageIcon) board[i][j].getIcon()).equals("empty")) {
+                } else if (!isEmpty(board[i][j])) {
                     break;
                 }
             }
@@ -973,9 +971,9 @@ public class King {
                 if(getType((ImageIcon) board[i][col].getIcon()).equals("king")){
                     continue;
                 }
-                if (getColor((ImageIcon) board[i][col].getIcon()).equals("white") && (getType((ImageIcon) board[i][col].getIcon()).equals("rook") || getType((ImageIcon) board[i][col].getIcon()).equals("queen"))) {
+                if (isWhite(board[i][col]) && (getType((ImageIcon) board[i][col].getIcon()).equals("rook") || getType((ImageIcon) board[i][col].getIcon()).equals("queen"))) {
                     return false;
-                } else if (!getColor((ImageIcon) board[i][col].getIcon()).equals("empty")) {
+                } else if (!isEmpty(board[i][col])) {
                     break;
                 }
             }
@@ -985,9 +983,9 @@ public class King {
                 if(getType((ImageIcon) board[i][col].getIcon()).equals("king")){
                     continue;
                 }
-                if (getColor((ImageIcon) board[i][col].getIcon()).equals("white") && (getType((ImageIcon) board[i][col].getIcon()).equals("rook") || getType((ImageIcon) board[i][col].getIcon()).equals("queen"))) {
+                if (isWhite(board[i][col]) && (getType((ImageIcon) board[i][col].getIcon()).equals("rook") || getType((ImageIcon) board[i][col].getIcon()).equals("queen"))) {
                     return false;
-                } else if (!getColor((ImageIcon) board[i][col].getIcon()).equals("empty")) {
+                } else if (!isEmpty(board[i][col])) {
                     break;
                 }
             }
@@ -997,9 +995,9 @@ public class King {
                 if(getType((ImageIcon) board[row][j].getIcon()).equals("king")){
                     continue;
                 }
-                if (getColor((ImageIcon) board[row][j].getIcon()).equals("white") && (getType((ImageIcon) board[row][j].getIcon()).equals("rook") || getType((ImageIcon) board[row][j].getIcon()).equals("queen"))) {
+                if (isWhite(board[row][j]) && (getType((ImageIcon) board[row][j].getIcon()).equals("rook") || getType((ImageIcon) board[row][j].getIcon()).equals("queen"))) {
                     return false;
-                } else if (!getColor((ImageIcon) board[row][j].getIcon()).equals("empty")) {
+                } else if (!isEmpty(board[row][j])) {
                     break;
                 }
             }
@@ -1009,9 +1007,9 @@ public class King {
                 if(getType((ImageIcon) board[row][j].getIcon()).equals("king")){
                     continue;
                 }
-                if (getColor((ImageIcon) board[row][j].getIcon()).equals("white") && (getType((ImageIcon) board[row][j].getIcon()).equals("rook") || getType((ImageIcon) board[row][j].getIcon()).equals("queen"))) {
+                if (isWhite(board[row][j]) && (getType((ImageIcon) board[row][j].getIcon()).equals("rook") || getType((ImageIcon) board[row][j].getIcon()).equals("queen"))) {
                     return false;
-                } else if (!getColor((ImageIcon) board[row][j].getIcon()).equals("empty")) {
+                } else if (!isEmpty(board[row][j])) {
                     break;
                 }
             }
@@ -1020,58 +1018,56 @@ public class King {
             //detect Knights
             //upper right
             if (row - 2 >= 0 && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row - 2][col + 1].getIcon()).equals("white") && getType((ImageIcon) board[row - 2][col + 1].getIcon()).equals("knight")) {
+                if (isWhite(board[row - 2][col + 1]) && getType((ImageIcon) board[row - 2][col + 1].getIcon()).equals("knight")) {
                     return false;
                 }
             }
 
             //upper left
             if (row - 2 >= 0 && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row - 2][col - 1].getIcon()).equals("white") && getType((ImageIcon) board[row - 2][col - 1].getIcon()).equals("knight")) {
+                if (isWhite(board[row - 2][col - 1]) && getType((ImageIcon) board[row - 2][col - 1].getIcon()).equals("knight")) {
                     return false;
                 }
             }
 
             //lower right
             if (row + 2 < board.length && col + 1 < board.length) {
-                if (getColor((ImageIcon) board[row + 2][col + 1].getIcon()).equals("white") && getType((ImageIcon) board[row + 2][col + 1].getIcon()).equals("knight")) {
+                if (isWhite(board[row + 2][col + 1]) && getType((ImageIcon) board[row + 2][col + 1].getIcon()).equals("knight")) {
                     return false;
                 }
             }
 
             //lower left
             if (row + 2 < board.length && col - 1 >= 0) {
-                if (getColor((ImageIcon) board[row + 2][col - 1].getIcon()).equals("white") && getType((ImageIcon) board[row + 2][col - 1].getIcon()).equals("knight")) {
+                if (isWhite(board[row + 2][col - 1]) && getType((ImageIcon) board[row + 2][col - 1].getIcon()).equals("knight")) {
                     return false;
                 }
             }
 
             //left down
             if (row + 1 < board.length && col - 2 >= 0) {
-                if (getColor((ImageIcon) board[row + 1][col - 2].getIcon()).equals("white") && getType((ImageIcon) board[row + 1][col - 2].getIcon()).equals("knight")) {
+                if (isWhite(board[row + 1][col - 2]) && getType((ImageIcon) board[row + 1][col - 2].getIcon()).equals("knight")) {
                     return false;
                 }
             }
 
             //left up
             if (row - 1 >= 0 && col - 2 >= 0) {
-                if (getColor((ImageIcon) board[row - 1][col - 2].getIcon()).equals("white") && getType((ImageIcon) board[row - 1][col - 2].getIcon()).equals("knight")) {
+                if (isWhite(board[row - 1][col - 2]) && getType((ImageIcon) board[row - 1][col - 2].getIcon()).equals("knight")) {
                     return false;
                 }
             }
 
             //right down
             if (row + 1 < board.length && col + 2 < board.length) {
-                if (getColor((ImageIcon) board[row + 1][col + 2].getIcon()).equals("white") && getType((ImageIcon) board[row + 1][col + 2].getIcon()).equals("knight")) {
+                if (isWhite(board[row + 1][col + 2]) && getType((ImageIcon) board[row + 1][col + 2].getIcon()).equals("knight")) {
                     return false;
                 }
             }
 
             //right up
             if (row - 1 >= 0 && col + 2 < board.length) {
-                if (getColor((ImageIcon) board[row - 1][col + 2].getIcon()).equals("white") && getType((ImageIcon) board[row - 1][col + 2].getIcon()).equals("knight")) {
-                    return false;
-                }
+                return !isWhite(board[row - 1][col + 2]) || !getType((ImageIcon) board[row - 1][col + 2].getIcon()).equals("knight");
             }
         }
         return true;
@@ -1080,38 +1076,18 @@ public class King {
         if(Objects.equals(this.color, "white")){
             if(direction.equals("right")){
 //                System.out.println(whiteRook2Moved);
-                if(!isCheck("white", board) && (board[7][7].getIcon()==whiteRook2 || board[7][7].getIcon()==whiteRook1) &&  this.row == 7 && this.col == 4 && board[7][5].getIcon()==null && board[7][6].getIcon() == null && isSafe(7, 5) && isSafe(7, 6) && !whiteKingMoved && !whiteRook2Moved){
-                    return true;
-                }
-                else{
-                    return false;
-                }
+                return !isCheck("white", board) && (board[7][7].getIcon() == whiteRook2 || board[7][7].getIcon() == whiteRook1) && this.row == 7 && this.col == 4 && board[7][5].getIcon() == null && board[7][6].getIcon() == null && isSafe(7, 5) && isSafe(7, 6) && !whiteKingMoved && !whiteRook2Moved;
             }
             else{
-                if(!isCheck("white", board) && (board[7][0].getIcon()==whiteRook1 || board[7][0].getIcon()==whiteRook2) && this.row == 7 && this.col == 4 && board[7][3].getIcon()==null && board[7][2].getIcon() == null && board[7][1].getIcon() == null && isSafe(7, 3) && isSafe(7, 2)  && isSafe(7, 2) && !whiteKingMoved && !whiteRook1Moved){
-                    return true;
-                }
-                else{
-                    return false;
-                }
+                return !isCheck("white", board) && (board[7][0].getIcon() == whiteRook1 || board[7][0].getIcon() == whiteRook2) && this.row == 7 && this.col == 4 && board[7][3].getIcon() == null && board[7][2].getIcon() == null && board[7][1].getIcon() == null && isSafe(7, 3) && isSafe(7, 2) && isSafe(7, 2) && !whiteKingMoved && !whiteRook1Moved;
             }
         }
         else{
             if(direction.equals("right")){
-                if(!isCheck("black", board) && (board[0][7].getIcon()==blackRook1 || board[0][7].getIcon()==blackRook2) && this.row == 0 && this.col == 4 && board[0][5].getIcon()==null && board[0][6].getIcon() == null && isSafe(0, 5) && isSafe(0, 6) && !blackKingMoved && !blackRook2Moved){
-                    return true;
-                }
-                else{
-                    return false;
-                }
+                return !isCheck("black", board) && (board[0][7].getIcon() == blackRook1 || board[0][7].getIcon() == blackRook2) && this.row == 0 && this.col == 4 && board[0][5].getIcon() == null && board[0][6].getIcon() == null && isSafe(0, 5) && isSafe(0, 6) && !blackKingMoved && !blackRook2Moved;
             }
             else{
-                if(!isCheck("black", board) && (board[0][0].getIcon()==blackRook2 || board[0][0].getIcon()==blackRook1) && this.row == 0 && this.col == 4 && board[0][3].getIcon()==null && board[0][2].getIcon() == null && board[0][1].getIcon() == null && isSafe(0, 3) && isSafe(0, 2)  && isSafe(0, 2) && !blackKingMoved && !blackRook1Moved){
-                    return true;
-                }
-                else{
-                    return false;
-                }
+                return !isCheck("black", board) && (board[0][0].getIcon() == blackRook2 || board[0][0].getIcon() == blackRook1) && this.row == 0 && this.col == 4 && board[0][3].getIcon() == null && board[0][2].getIcon() == null && board[0][1].getIcon() == null && isSafe(0, 3) && isSafe(0, 2) && isSafe(0, 2) && !blackKingMoved && !blackRook1Moved;
             }
         }
     }

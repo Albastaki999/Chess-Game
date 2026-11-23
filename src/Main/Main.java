@@ -11,11 +11,15 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Objects;
 import java.util.Stack;
 
 public class Main implements MouseListener {
+    private static final IdentityHashMap<ImageIcon, String> colorCache = new IdentityHashMap<>();
+    private static final IdentityHashMap<ImageIcon, String> typeCache = new IdentityHashMap<>();
+    private static final IdentityHashMap<Image, BufferedImage> bufferedImageCache = new IdentityHashMap<>();
     public static JLabel[][] board;
     public static ImageIcon blackRook1;
     public static ImageIcon whiteRook1;
@@ -1262,6 +1266,10 @@ public class Main implements MouseListener {
         if (i == null) {
             return "empty";
         }
+        String cachedColor = colorCache.get(i);
+        if (cachedColor != null) {
+            return cachedColor;
+        }
         if (compareImages(i.getImage(), blackRook1.getImage())
                 || compareImages(i.getImage(), blackRook2.getImage())
                 || compareImages(i.getImage(), blackBishop1.getImage())
@@ -1278,8 +1286,10 @@ public class Main implements MouseListener {
                 || compareImages(i.getImage(), blackPawn7.getImage())
                 || compareImages(i.getImage(), blackPawn8.getImage())
                 || compareImages(i.getImage(), blackPawn1.getImage())) {
+            colorCache.put(i, "black");
             return "black";
         }
+        colorCache.put(i, "white");
         return "white";
     }
 
@@ -1288,10 +1298,15 @@ public class Main implements MouseListener {
         if (i == null) {
             return "empty";
         }
+        String cachedType = typeCache.get(i);
+        if (cachedType != null) {
+            return cachedType;
+        }
         if (compareImages(i.getImage(), blackRook2.getImage())
                 || compareImages(i.getImage(), blackRook1.getImage())
                 || compareImages(i.getImage(), whiteRook1.getImage())
                 || compareImages(i.getImage(), whiteRook2.getImage())) {
+            typeCache.put(i, "rook");
             return "rook";
         }
 
@@ -1299,6 +1314,7 @@ public class Main implements MouseListener {
                 || compareImages(i.getImage(), blackBishop2.getImage())
                 || compareImages(i.getImage(), whiteBishop1.getImage())
                 || compareImages(i.getImage(), whiteBishop2.getImage())) {
+            typeCache.put(i, "bishop");
             return "bishop";
         }
 
@@ -1306,19 +1322,23 @@ public class Main implements MouseListener {
                 || compareImages(i.getImage(), blackKnight1.getImage())
                 || compareImages(i.getImage(), whiteKnight1.getImage())
                 || compareImages(i.getImage(), whiteKnight2.getImage())) {
+            typeCache.put(i, "knight");
             return "knight";
         }
 
         if (compareImages(i.getImage(), blackQueen.getImage())
                 || compareImages(i.getImage(), whiteQueen.getImage())) {
+            typeCache.put(i, "queen");
             return "queen";
         }
 
         if (compareImages(i.getImage(), blackKing.getImage())
                 || compareImages(i.getImage(), whiteKing.getImage())) {
+            typeCache.put(i, "king");
             return "king";
         }
 
+        typeCache.put(i, "pawn");
         return "pawn";
     }
 
@@ -1345,6 +1365,10 @@ public class Main implements MouseListener {
         if (img instanceof BufferedImage) {
             return (BufferedImage) img;
         }
+        BufferedImage cached = bufferedImageCache.get(img);
+        if (cached != null) {
+            return cached;
+        }
 
         BufferedImage bufferedImage = new BufferedImage(
                 img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
@@ -1353,6 +1377,7 @@ public class Main implements MouseListener {
         g2d.drawImage(img, 0, 0, null);
         g2d.dispose();
 
+        bufferedImageCache.put(img, bufferedImage);
         return bufferedImage;
     }
 
